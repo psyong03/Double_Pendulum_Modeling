@@ -50,28 +50,5 @@ t = 1
 h = 1000
 
 print(RungeKutta4th(n, f, t0, x0, t, h)) # (1.0000000000000007, array([ 1.68378609,  1.50061361, -0.13909097]))
-'''
 
-m1, m2, l1, l2 = 1.0, 1.0, 1.0, 1.0
-g = 9.8
-n = 4
-f1 = lambda t, x: x[2]
-f2 = lambda t, x: x[3]
-def f3(t, x):
-    numer1 = -g*(2*m1+m2)*np.sin(x[0]) -m2*g*np.sin(x[0]-2*x[1])
-    numer2 = -2*np.sin(x[0]-x[1])*m2*(x[3]**2*l2+x[2]**2*l1*np.cos(x[0]-x[1]))
-    numer = numer1 + numer2
-    denom = l1*(2*m1+m2-m2*np.cos(2*x[0]-2*x[1]))
-    return numer/denom
-def f4(t, x):
-    numer1 = x[2]**2*l1*(m1+m2) + g*(m1+m2)*np.cos(x[0])
-    numer2 = x[3]**2*l2*m2*np.cos(x[0]-x[1])
-    numer = 2*np.sin(x[0]-x[1])*(numer1+numer2)
-    denom = l2*(2*m1+m2-m2*np.cos(2*x[0]-2*x[1]))
-    return numer/denom
-f = np.array([f1, f2, f3, f4])
-t0 = 0
-x0 = np.array([1.0, 1.0, 0.0, 0.0])
-t = 1
-step = 1000
-print(RungeKutta4th(n, f, t0, x0, t, step))
+'''
